@@ -53,7 +53,7 @@
             this.text = '';
           },
           reciveChatMessage(msg) {
-            console.log(`recv : ${msg}`);
+            console.log(`recv : ${msg.message}`);
             this.messages.push(msg);
           },
           reciveAlertMessage(msg) {
@@ -67,7 +67,7 @@
             this.reciveChatMessage(msg);
           });
 
-          this.socket.alerts = io('http://localhost:3000/alerts');
+          this.socket.alerts = io('http://localhost:3000/alert');
           this.socket.alerts.on('alertToClient', msg => {
             this.reciveAlertMessage(msg);
           });
